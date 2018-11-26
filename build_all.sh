@@ -21,7 +21,7 @@ git apply ../../opencv_cuda9.patch
 [[ -d build ]] || mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D WITH_TBB=ON  -D WITH_V4L=ON  -D WITH_CUDA=ON -D WITH_OPENCL=OFF ..
-if make -j4; then
+if make -j32; then
     cp lib/cv2.so ../../../
     echo "OpenCV" $version "built."
 else
@@ -54,7 +54,7 @@ OpenCV_DIR=../../../3rd-party/opencv-$version/build/ cmake .. -DUSE_MPI=ON -DMPI
 else
 OpenCV_DIR=../../../3rd-party/opencv-$version/build/ cmake .. -DCUDA_USE_STATIC_CUDA_RUNTIME=OFF
 fi
-if make -j32 install ; then
+if make -j 6 all ; then
     echo "Caffe Built."
     echo "All tools built. Happy experimenting!"
     cd ../../../
