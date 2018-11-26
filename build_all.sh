@@ -46,7 +46,7 @@ fi
 
 # build caffe
 echo "Building Caffe, MPI status: ${CAFFE_USE_MPI}"
-cd ../../caffe-action
+cd ../../Hidden-Two-Stream/
 [[ -d build ]] || mkdir build
 cd build
 if [ "$CAFFE_USE_MPI" == "MPI_ON" ]; then
